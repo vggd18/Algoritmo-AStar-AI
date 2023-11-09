@@ -14,6 +14,21 @@ distdireta = [
     [27.3, 20.9, 19.1, 18.6, 24.8, 27.6, 25.7, 6.4, 10.9, 24.2, 14.2, 0, 28.8, 33.6], #E12
     [27.6, 19.1, 12.1, 10.6, 14.5, 15.2, 12.4, 22.7, 21.2, 18.7, 31.5, 28.8, 0, 5.1], #E13
     [29.8, 21.8, 16.6, 15.4, 17.9, 18.2, 15.6, 27.6, 26.6, 21.2, 35.5, 33.6, 5.1, 0] #E14
+]  
+
+distReal = [
+    [0, 10, INF, INF, INF, INF, INF, INF, INF, INF, INF, INF, INF, INF],
+    [10, 0, 8.5, INF, INF, INF, INF, INF, 10, 3.5, INF, INF, INF, INF],
+    [INF, 8.5, 0, 6.3, INF, INF, INF, INF, 9.4, INF, INF, INF, 18.7, INF],
+    [INF, INF, 6.3, 0, 13, INF, INF, 15.3, INF, INF, INF, INF, 12.8, 11],
+    [INF, INF, INF, 13, 0, 3, 2.4, 30, INF, INF, INF, INF, INF, INF],
+    [INF, INF, INF, INF, 3, 0, INF, INF, INF, INF, INF, INF, INF, INF],
+    [INF, INF, INF, INF, 2.5, INF, 0, INF, INF, INF, INF, INF, INF, INF],
+    [INF, INF, INF, 15.3, 30, INF, INF, INF, 0, 9.6, INF, INF, 6.4, INF, INF],
+    [INF, 10, 9.4, INF, INF, INF, INF, 9.6, 0, INF, 12.2, INF, INF, INF],
+    [INF, 3.5, INF, INF, INF, INF, INF, INF, INF, 0, INF, INF, INF, INF],
+    [INF, INF, INF, INF, INF, INF, INF, INF, 12.2, INF, 0, INF, INF, INF],
+    [INF, INF, INF, INF, INF, INF, INF, 6.4, INF, INF, INF, 0, INF, INF],
+    [INF, INF, 18.7, 12.8, INF, INF, INF, INF, INF, INF, INF, INF, 0, 5.1],
+    [INF, INF, INF, 11, INF, INF, INF, INF, INF, INF, INF, INF, 5.1, INF]
 ]
-
-
