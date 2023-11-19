@@ -1,12 +1,17 @@
 from database import *
-
+#classe node
 class Node():
     #Inicia o nó
     def __init__(self, parent = None, pos = None):
+        #pai do no
         self.parent = parent
+        #qual estacao ele pertence
         self.pos = pos
+        #o custo ate chegar nele
         self.g = 0
+        #distancia euclidiana ate o destino
         self.h = 0
+        #f + g
         self.f = 0
 
 

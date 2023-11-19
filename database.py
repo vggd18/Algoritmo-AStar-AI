@@ -1,4 +1,5 @@
 INF = 9999999
+#distancia euclidiana entre os nos em questao
 distdireta = [
     [0, 10, 24,8, 18.5, 36.4, 38.8, 35.8, 25.4, 17.6, 9.1, 16.7, 27.3, 27.7, 29.8], #E1
     [10, 0, 8.5, 14.8, 26.6, 29.1, 26.1, 17.3, 10, 3.5, 15.5, 20.9, 19.1, 21.8], #E2
@@ -15,7 +16,7 @@ distdireta = [
     [27.6, 19.1, 12.1, 10.6, 14.5, 15.2, 12.4, 22.7, 21.2, 18.7, 31.5, 28.8, 0, 5.1], #E13
     [29.8, 21.8, 16.6, 15.4, 17.9, 18.2, 15.6, 27.6, 26.6, 21.2, 35.5, 33.6, 5.1, 0] #E14
 ]  
-
+#distancia entre um no e outro a partir do mapa
 distReal = [
     [0, 10, INF, INF, INF, INF, INF, INF, INF, INF, INF, INF, INF, INF],#E1
     [10, 0, 8.5, INF, INF, INF, INF, INF, 10, 3.5, INF, INF, INF, INF],#E2
