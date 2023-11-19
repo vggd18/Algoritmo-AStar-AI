@@ -1,5 +1,10 @@
 INF = 9999999
 #distancia euclidiana entre os nos em questao
+linha_vermelha = [10, 8, 2, 12]
+linha_azul = [0, 1, 2, 3, 4, 5]
+linha_amarela = [9, 1, 8, 7, 4, 6]
+linha_verde = [11, 7, 3, 12, 13]
+
 distdireta = [
     [0, 10, 24,8, 18.5, 36.4, 38.8, 35.8, 25.4, 17.6, 9.1, 16.7, 27.3, 27.7, 29.8], #E1
     [10, 0, 8.5, 14.8, 26.6, 29.1, 26.1, 17.3, 10, 3.5, 15.5, 20.9, 19.1, 21.8], #E2

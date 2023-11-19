@@ -2,7 +2,7 @@ from database import *
 #classe node
 class Node():
     #Inicia o nó
-    def __init__(self, parent = None, pos = None):
+    def __init__(self, parent = None, pos = None,):
         #pai do no
         self.parent = parent
         #qual estacao ele pertence
@@ -13,6 +13,8 @@ class Node():
         self.h = 0
         #f + g
         self.f = 0
+        #cor da linha que ele se encontra
+        self.linha = "inicio"
 
 
 eI = int(input("ESTAÇÃO QUE VOCÊ ESTÁ: ")) - 1      # Estação Inicial
@@ -22,10 +24,55 @@ eF = int(input("ESTAÇÃO QUE VOCÊ DESEJA IR: ")) - 1 # Estação Final
 #lista fechada = caminho
 lista_aberta = []
 lista_fechada = []
-
+#escolhe a linha inicial
 start_node = Node(None, eI)
 
 lista_aberta.append(start_node)
+#funcao que administra a troca de linhas de metro
+def Swap(azul, amarela,vermelha, verde, filho, pai):
+    if pai.pos in vermelha and filho.pos in vermelha:
+        return "vermelha"
+    elif pai.pos in verde and filho.pos in verde:
+        return "verde"
+    elif pai.pos in amarela and filho.pos in amarela:
+        return "amarela"
+    elif pai.pos in azul and filho.pos in azul:
+        return "azul"
+def Troca_de_linhas(azul, amarela,vermelha, verde, filho, pai):
+    #descobre a linha inicial
+    if pai.linha == "inicio":
+        if pai.pos in vermelha and filho.pos in vermelha:
+            filho.linha = Swap(azul, amarela,vermelha, verde, filho, pai)
+            pai.linha = filho.linha
+            return 0
+        elif pai.pos in verde and filho.pos in verde:
+            filho.linha = Swap(azul, amarela,vermelha, verde, filho, pai)
+            pai.linha = filho.linha
+            return 0
+        elif pai.pos in amarela and filho.pos in amarela:
+            filho.linha = Swap(azul, amarela,vermelha, verde, filho, pai)
+            pai.linha = filho.linha
+            return 0
+        elif pai.pos in azul and filho.pos in azul:
+            filho.linha = Swap(azul, amarela,vermelha, verde, filho, pai)
+            pai.linha = filho.linha
+            return 0
+    else:
+        #verifica em cada caso se esta na mesma linha ou esta trocando e efetivamente troca a linha
+        if pai.linha == "vermelha" and filho.pos not in vermelha:
+            filho.linha = Swap(azul, amarela,vermelha, verde, filho, pai)
+            return 4
+        elif pai.linha == "verde" and filho.pos not in verde:
+            filho.linha = Swap(azul, amarela,vermelha, verde, filho, pai)
+            return 4
+        elif pai.linha == "amarela" and filho.pos not in amarela:
+            filho.linha = Swap(azul, amarela,vermelha, verde, filho, pai)
+            return 4
+        elif pai.linha == "azul" and filho.pos not in azul:
+            filho.linha = Swap(azul, amarela,vermelha, verde, filho, pai)
+            return 4
+        else:
+            return 0
 
 while len(lista_aberta) > 0:
     #checa o no que tem o menor f para usar de current node
@@ -45,6 +92,7 @@ while len(lista_aberta) > 0:
         g_total = current_node.g
         current = current_node
         while current != None:
+            print(current.g)
             caminho.append(f"E{current.pos + 1}")
             current = current.parent
         break
@@ -62,7 +110,8 @@ while len(lista_aberta) > 0:
         if filho in lista_fechada:
             continue
         #adiciona os valores importantes para o filho
-        filho.g = distReal[current_node.pos][filho.pos] + filho.parent.g
+        #g eh composto do tempo total, ou seja, tempo do pai acumulado, mais o tempo do pai em minutos para chegar no filho mais o tempo de troca de estacao caso seja aplicavel
+        filho.g = ((distReal[current_node.pos][filho.pos] / 30) * 60) + filho.parent.g + Troca_de_linhas(linha_azul, linha_amarela,linha_vermelha, linha_verde, filho, filho.parent)
         filho.h = distdireta[filho.pos][eF]
         filho.f = filho.g + filho.h
         #alem de verificar se esta repetido na fronteira, tambem ve se o caminho repetido eh melhor que o anterior
