@@ -124,4 +124,5 @@ while True:
             lista_aberta.append(filho)
     print(f"caminho: {caminho[::-1]}")
     print(f"tempo gasto: {round(g_total, 2)}")
+    print("")
 
