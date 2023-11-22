@@ -78,6 +78,11 @@ while True:
     lista_aberta.append(start_node)
 
     while len(lista_aberta) > 0:
+        fronteira = []
+        for i in lista_fechada:
+            fronteira.append(i.pos)
+        print(fronteira)
+        
         #checa o no que tem o menor f para usar de current node
         current_node = lista_aberta[0]
         current_index = 0
