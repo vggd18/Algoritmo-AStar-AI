@@ -66,7 +66,7 @@ def pathfinder(start, end, linha):
             fronteira.append(f"E{j+1}")
         print(fronteira)
         current_cell = open_cells[0]
-        closed_cells.append(current_cell)
+        closed_cells.append(current_cell.position)
         open_cells.pop(0)
 
         if current_cell == end:
@@ -76,9 +76,8 @@ def pathfinder(start, end, linha):
         for i in range(14):
             if distReal[current_cell.position][i] == INF or distReal[current_cell.position][i] == 0:
                 continue
-            #for j in closed_cells:
-            #    if i == j.position:
-            #        continue
+            if i in closed_cells:
+                continue
             newcell = Cell(current_cell, i, current_cell.linha)
             newcell.g = current_cell.g + (distReal[current_cell.position][i] /30 * 60) + Troca_de_linhas(linha_azul, linha_amarela,linha_vermelha, linha_verde, newcell, newcell.parent)
             newcell.h = distdireta[end.position][i]
